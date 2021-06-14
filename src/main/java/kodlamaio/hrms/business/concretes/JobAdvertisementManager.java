@@ -81,7 +81,7 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	 
 	(this.DtoConverterService.dtoConverter
 			 
-			(this.jobAdvertisementDao.findByIsActiveOrderByAplicationDeadline(true),JobAdvertisementDto.class),"Aktif iş ilanları tarhire göre listelendi");	
+			(this.jobAdvertisementDao.findByIsActiveOrderByAplicationDeadline(true),JobAdvertisementDto.class),"Aktif iş ilanları tarhire göre listelendi.");	
 	}
 
 	@Override
