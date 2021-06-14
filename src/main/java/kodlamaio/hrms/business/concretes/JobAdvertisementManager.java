@@ -26,15 +26,6 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	private DtoConverterService DtoConverterService;
 	
 	
-	
-	
-	
-	public JobAdvertisementManager() {
-		super();
-	}
-
-
-
 
 
 	@Autowired
@@ -76,12 +67,12 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisementDto>> findByIsActiveOrderByAplicationDeadline() {
+	public DataResult<List<JobAdvertisementDto>> findByIsActiveOrderByApplicationDeadline() {
 	return new SuccessDataResult<List<JobAdvertisementDto>>
 	 
 	(this.DtoConverterService.dtoConverter
 			 
-			(this.jobAdvertisementDao.findByIsActiveOrderByAplicationDeadline(true),JobAdvertisementDto.class),"Aktif iş ilanları tarhire göre listelendi.");	
+			(this.jobAdvertisementDao.findByIsActiveOrderByApplicationDeadline(true),JobAdvertisementDto.class),"Aktif iş ilanları tarhire göre listelendi.");	
 	}
 
 	@Override

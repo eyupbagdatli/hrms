@@ -16,7 +16,7 @@ public interface JobAdvertisementService {
 	
 	
 	DataResult<List<JobAdvertisementDto>> findByIsActive();
-	DataResult<List<JobAdvertisementDto>>  findByIsActiveOrderByAplicationDeadline();
+	DataResult<List<JobAdvertisementDto>>  findByIsActiveOrderByApplicationDeadline();
 	DataResult<List<JobAdvertisementDto>> findByIsActiveAndEmployer_CompanyName(String companyName);
 
 

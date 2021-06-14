@@ -48,7 +48,7 @@ public class JobAdvertisementContreller {
 	@GetMapping("findByIsActiveOrderByAplicationDeadLine")
 	public DataResult<List<JobAdvertisementDto>> findByIsActiveOrderByAplicationDeadline() {
 		
-		return this.jobAdvertisementService.findByIsActiveOrderByAplicationDeadline();
+		return this.jobAdvertisementService.findByIsActiveOrderByApplicationDeadline();
 		}
 
 	
