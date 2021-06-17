@@ -4,12 +4,13 @@ import java.util.List;
 
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.City;
+import kodlamaio.hrms.entities.dtos.TechnologyDto;
 
-public interface CityService {
+public interface TechnologyService {
 	
-	Result add(City city);
-	DataResult<List<City>> getAll();
+	Result add(TechnologyDto technologyDto);
+	
+	DataResult<List<TechnologyDto>> getAll();
 	
 
 }

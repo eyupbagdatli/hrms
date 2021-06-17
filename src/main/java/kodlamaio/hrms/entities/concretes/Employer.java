@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,10 +25,15 @@ import lombok.NoArgsConstructor;
 @PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
 public class Employer extends User {
 
+	@NotBlank(message="Şirket ismi alanını boş bırakmayınız")
 	@Column(name="company_name")
 	private String companyName;
+    
+	@NotBlank(message="Web alaı boş bırakmayınız")
 	@Column(name="web_address")
 	private String webAddress;
+	
+    @NotBlank(message="Telefon numarasını alanı boş bırakmayınız")
 	@Column(name="phone_number")
 	private String phoneNumber;
 	

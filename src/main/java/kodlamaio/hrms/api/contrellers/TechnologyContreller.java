@@ -2,39 +2,35 @@ package kodlamaio.hrms.api.contrellers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.hrms.business.abstracts.CityService;
+import kodlamaio.hrms.business.abstracts.TechnologyService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.City;
+import kodlamaio.hrms.entities.dtos.TechnologyDto;
 
 @RestController
-@RequestMapping("api/cities/")
-public class CityContreller {
+@RequestMapping("api/technologies/")
+public class TechnologyContreller {
 
-	private CityService cityService;
+	private TechnologyService technologyService;
 
-	@Autowired
-	public CityContreller(CityService cityService) {
+	public TechnologyContreller(TechnologyService technologyService) {
 		super();
-		this.cityService = cityService;
-	}
-	@PostMapping("add")
-	public Result add(@RequestBody City city) {
-		return this.cityService.add(city);
+		this.technologyService = technologyService;
 	}
 	
+	@PostMapping("add")
+	public Result add(@RequestBody TechnologyDto technologyDto) {
+		return this.technologyService.add(technologyDto);
+	}
 	@GetMapping("getall")
-	public DataResult<List<City>> getAll(){
-		
-	return	this.cityService.getAll();
-		
-	}	
+	public 	DataResult<List<TechnologyDto>> getAll(){
+		return this.technologyService.getAll();
+	}
 	
 }

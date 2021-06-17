@@ -43,16 +43,9 @@ public class CandidateManager implements CandidateService {
 	@Override
 	public Result add(Candidate candidate) {
 		
-		if(     candidate.getFirstName().isEmpty()||
-				candidate.getLastName().isEmpty()||
-				candidate.getEmailAddress().isEmpty()||
-				candidate.getPassword().isEmpty()||
-				candidate.getNationalityId().isEmpty()
-				)
-		{
-			return new ErrorResult("Tüm alanları doldurunuz");
-			}
-		else if (!userCheckService.verificationEmail(candidate.getEmailAddress())) {
+		
+			
+		 if (!userCheckService.verificationEmail(candidate.getEmailAddress())) {
 			    return new ErrorResult("Email adresiniz daha önce kullanılmış");
 		}
 		else if(!candidateCheckService.verificationNationalityId(candidate.getNationalityId())) {

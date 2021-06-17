@@ -36,7 +36,7 @@ public class JobTitleManager implements JobTitleService {
 	@Override
 	public Result add(JobTitle jobTitle) {
 		
-		if(jobTitleCheckService.checkJobTitle(jobTitle.getTitle())) {
+		if(!jobTitleCheckService.checkJobTitle(jobTitle.getTitle())) {
 			return new ErrorResult("bu isim daha önce kullanılmıştır");
 		}else {
 		this.jobTitleDao.save(jobTitle);
