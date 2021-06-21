@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -32,9 +33,10 @@ public class JobExperience {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="company_name")
+	@NotNull
 	@NotBlank(message="Şirket ismi boş bırakılamaz")
-	private String companyName;
+	@Column(name="old_company_name")
+	private String oldCompanyName;
 	
 	
 	@Column(name="starting_date")
@@ -46,14 +48,12 @@ public class JobExperience {
     @Column(name="creating_date")
     private LocalDate creatingDate;
     
-    @JsonProperty(access=Access.WRITE_ONLY)
-    @ManyToOne
+    @JsonProperty(access = Access.WRITE_ONLY)
+	@ManyToOne(targetEntity = Resume.class)
     @JoinColumn(name="resume_id")
     private Resume resume;
     
-    @ManyToOne
-    @JoinColumn(name="job_title_id",referencedColumnName = "id")
-    private JobTitle jobTitle;
+ 
     
     
     

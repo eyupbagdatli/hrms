@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 public class JobExperienceDto {
 
     private int id;
-    private int jobTitleId;
+    
     private int resumeId;
-    private String companyName;
+    private String oldCompanyName;
     private LocalDate startingDate;
 	private LocalDate endingDate;
 	private LocalDate creatingDate;

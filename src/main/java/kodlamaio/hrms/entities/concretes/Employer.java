@@ -1,5 +1,7 @@
 package kodlamaio.hrms.entities.concretes;
 
+
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,6 +10,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +28,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="employers")
 @PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvert"})
 public class Employer extends User {
 
 	@NotBlank(message="Şirket ismi alanını boş bırakmayınız")
@@ -36,9 +42,12 @@ public class Employer extends User {
     @NotBlank(message="Telefon numarasını alanı boş bırakmayınız")
 	@Column(name="phone_number")
 	private String phoneNumber;
-	
-	@OneToMany(mappedBy="employer")
+    
+    @JsonIgnore
+    @OneToMany(mappedBy="employer")
 	private List<JobAdvertisement> jobAdvertisement;
+	
+	
 	
 
 }

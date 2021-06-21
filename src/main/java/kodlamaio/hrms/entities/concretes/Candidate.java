@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -27,21 +28,23 @@ import lombok.NoArgsConstructor;
 public class Candidate extends User {
 	
 
-	
+	@NotNull
 	@NotBlank(message="İsim alanını boş bırakmayınız")
 	@Column(name="first_name")
 	private String firstName;
 	
+	@NotNull
 	@NotBlank(message="Soyad alanını boş bırakmayınız")
 	@Column(name="last_name")
 	private String lastName;
 	
+	@NotNull
 	@NotBlank(message="Kimlik numarası alanını boş bırakmayınız")
 	@Size(min=11 ,max=11,message="Kimlik numarası 11 haneli olmalıdır")
 	@Column(name="identity_number")
 	private String nationalityId;
 	
-	@NotBlank(message="Doğum tarihi alanını boş bırakmayınız")
+	
 	@Column(name="date_of_birth")
 	private LocalDate dateOfBirth;
 	

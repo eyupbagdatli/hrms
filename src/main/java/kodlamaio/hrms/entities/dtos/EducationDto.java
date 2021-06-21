@@ -20,8 +20,8 @@ public class EducationDto {
 	private int graduateId;
 	
 	private String schoolName;
-    private LocalDate startingDate;
     private String  schoolDepartment;
+    private LocalDate startingDate;
     private LocalDate endingDate;
 	private LocalDate creatingDate;
 	

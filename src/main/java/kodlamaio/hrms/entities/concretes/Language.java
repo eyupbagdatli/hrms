@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,7 +43,8 @@ public class Language {
 	@NotBlank(message="Boş bırakmayınız")
 	private String languageName;
 	
-	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
+	@ManyToOne(targetEntity = Resume.class)
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 	

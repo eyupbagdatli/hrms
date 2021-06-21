@@ -19,4 +19,5 @@ public class LanguageDto {
 	private LocalDate creatingDate;
 	private String level;
 	private String languageName;
+	private int resumeId;
 }

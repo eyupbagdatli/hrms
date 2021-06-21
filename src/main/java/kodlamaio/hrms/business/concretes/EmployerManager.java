@@ -48,14 +48,14 @@ public class EmployerManager implements EmployerService {
 				employer.getWebAddress().isEmpty()) {
 			return new ErrorResult("Tüm alanları doldurunuz");
         }
-		else if(userCheckService.verificationEmail(employer.getEmailAddress())) {
+		else if(!userCheckService.verificationEmail(employer.getEmailAddress())) {
 			return new ErrorResult("Bu e mail adresi daha önce kullanılmıştır.");
 		}
 		
-		else if(employerCheckService.checkForDomain(employer)) {
+		else if(!employerCheckService.checkForDomain(employer)) {
 			return new ErrorResult("E mail adresiniz domain ile uyuşmamaktadır");
 		}
-		else if(userCheckService.confirmationEmail(employer)) {
+		else if(!userCheckService.confirmationEmail(employer)) {
 			return new ErrorResult("E mail onayını sağlayınız");
 		}
 		else{

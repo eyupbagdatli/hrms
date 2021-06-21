@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -33,11 +34,11 @@ public class JobTitle {
 	@NotBlank(message="Boş bırakmayınız")
 	private String title;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="jobTitle")
 	private List<JobAdvertisement> jobAdvertisement;
 	
-	@OneToMany(mappedBy="jobTitle")
-	private List<JobExperience> jobExperiences;
+
 	
 
 	
