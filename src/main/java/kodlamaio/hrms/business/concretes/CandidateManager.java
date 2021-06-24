@@ -43,9 +43,7 @@ public class CandidateManager implements CandidateService {
 	@Override
 	public Result add(Candidate candidate) {
 		
-		
-			
-		 if (!userCheckService.verificationEmail(candidate.getEmailAddress())) {
+		if (!userCheckService.verificationEmail(candidate.getEmailAddress())) {
 			    return new ErrorResult("Email adresiniz daha önce kullanılmış");
 		}
 		else if(!candidateCheckService.verificationNationalityId(candidate.getNationalityId())) {
